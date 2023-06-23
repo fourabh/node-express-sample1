@@ -10,7 +10,7 @@ const Product = model.Product;
 exports.createProduct = (req, res) => {
   // console.log(req.body);
   // products.push(req.body);
-  const product = new Product(req.body);
+  const product = new Product(req.body); 
   product.save();
   res.json(req.body);
 };

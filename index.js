@@ -2,6 +2,7 @@ const express = require("express");
 const server = express();
 const mongoose = require('mongoose')
 const cors  = require('cors')
+const fs = require("fs");
 const port = 8080;
 
 
@@ -23,6 +24,9 @@ server.use(express.json());
 server.use(express.static('build'))
 server.use("/products",productRouter.router)
 server.use("/users",userRouter.router)
+server.use("*",(req,res)=>{
+  res.sendFile(__dirname+"/build/index.html")
+})
 
 
 
